@@ -1,0 +1,147 @@
+
+A-
+1:
+	use college;
+
+2:
+	db.createCollection("students")
+
+3:
+	show collections
+
+4:
+	db.students.insertOne({name:"rohit",
+ age:21,
+ gender:"M",
+ course:"MCA",
+ department:"science",
+ city:"pune",
+ marks:88,
+ fees:25000,
+ isActive:"yes"
+ })
+
+5:
+	db.students.insertMany([{name:"shreya",
+ age:21,
+ gender:"F",
+ course:"MCA",
+ department:"science",
+ city:"pune",
+ marks:09,
+ fees:25000,
+ isActive:"yes"
+ },
+{name:"yash",
+ age:21,
+ gender:"M",
+ course:"MCA",
+ department:"science",
+ city:"pune",
+ marks:90,
+ fees:25000,
+ isActive:"yes"
+ },
+{name:"roshan",
+ age:21,
+ gender:"M",
+ course:"MCA",
+ department:"science",
+ city:"pune",
+ marks:09,
+ fees:25000,
+ isActive:"yes"
+ },
+{name:"dipu",
+ age:23,
+ gender:"M",
+ course:"MCA",
+ department:"science",
+ city:"pune",
+ marks:56,
+ fees:25000,
+ isActive:"no"
+ },
+{name:"pranali",
+ age:21,
+ gender:"F",
+ course:"MCA",
+ department:"science",
+ city:"pune",
+ marks:91,
+ fees:25000,
+ isActive:"yes"
+ }]
+)	
+
+
+
+
+B-
+
+6:
+	db.students.find()
+
+7:
+	db.students.find().limit(5)
+	
+8:
+	db.students.find({age:{$gt:20}})
+
+9:
+	db.students.find({marks:{$gt:75}})
+
+10:
+	 db.students.find({department:"Computer"})
+
+11:
+
+	db.students.find({city:"Pune"})
+
+12:
+
+	db.students.find({},{name:1,marks:1})
+
+13:
+	db.students.find({gender:"Female"})
+
+14:
+	db.students.find({fees:{$lte:50000}})
+
+15:
+	db.students.find({isActive:true})
+
+
+
+C-
+
+16:
+	db.students.find({marks:{$gte:60,$lte:90}})
+
+17:
+	db.students.find({department:{$in:["Computer","IT"]}})
+
+18:
+	db.students.find({age:{$ne:20}})
+
+19:
+	db.students.find().sort({ marks: 1 })
+
+20:
+	db.students.find().sort({ marks: -1 })
+
+21:
+	db.students.updateOne({name:"Rahul"},{$set:{marks:85}})
+
+22:
+	db.students.updateOne({name:"Amit"},{$inc:{fees:5000}})
+
+23:
+	db.students.updateOne({name:"Rohit"},{$set:{email:"rohitbendre35@gmail.com"}})
+
+24:
+	db.students.deleteOne({name:"Rohit"})
+
+25:
+	db.students.deleteMany({marks:{$lt:35}})
+	
